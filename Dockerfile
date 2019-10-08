@@ -19,4 +19,3 @@ COPY . .
 RUN npm run dev
 
 EXPOSE 3000
-CMD [ "http-server", "dist" ]

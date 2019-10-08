@@ -1,0 +1,29 @@
+{
+    "moduleFileExtensions": ["js", "vue"],
+    "moduleNameMapper": {
+    "^@/(.*)$": "<rootDir>/src/$1",
+    "^molecules/(.*)$": "<rootDir>/src/components/molecules/$1",
+    "^atoms/(.*)$": "<rootDir>/src/components/atoms/$1",
+    "^organisms/(.*)$": "<rootDir>/src/components/organisms/$1",
+    "^services/(.*)$": "<rootDir>/src/services/$1",
+    "^helpers/(.*)$": "<rootDir>/src/helpers/$1"
+    },
+    "transform": {
+    "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
+    ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest"
+    },
+    "snapshotSerializers": [
+    "<rootDir>/node_modules/jest-serializer-vue"
+    ],
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+    "src/**/*.{js,vue}",
+    "!src/**/index.{js}",
+    "!**/node_modules/**",
+    "!src/main.js"
+    ],
+    "coverageReporters": [
+    "html",
+    "text-summary"
+    ]
+}
