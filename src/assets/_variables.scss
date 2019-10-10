@@ -1,0 +1,11 @@
+
+@import 'theme/default';
+
+/* bg-color */
+$bg-color:  map-get($color-map,site-white-background);
+$card-bg-footer-color: map-get($color-map,site-smokewhite);
+$divider-bg-color: map-get($color-map,site-smokewhite);
+$box-shadow: adjust-color(map-get($color-map, site-icewhite), $alpha: .1 );
+
+$primary-font-family: Helvetica, Arial;
+

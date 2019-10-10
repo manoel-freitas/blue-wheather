@@ -17,5 +17,8 @@ module.exports = {
   globals: {
     expect: true,
     window: true
+  },
+  rules: {
+    'no-console': 'off'
   }
 }

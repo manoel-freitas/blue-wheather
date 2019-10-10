@@ -1,0 +1,19 @@
+.main-container {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: {
+        left: 16px;
+        right: 16px;
+    }
+}
+#app {
+    height: 100%;   
+}
+.center-flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center ;
+    justify-content: center;
+}

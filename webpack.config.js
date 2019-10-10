@@ -29,7 +29,8 @@ const config = {
       '@': resolve('src'),
       molecules: resolve('src/components/molecules'),
       organisms: resolve('src/components/organisms'),
-      helpers: resolve('src/helpers')
+      helpers: resolve('src/helpers'),
+      assets: resolve('src/assets')
     },
     extensions: ['.js', '.vue', '.json']
   },
@@ -39,6 +40,11 @@ const config = {
         test: /\.vue$/,
         use: 'vue-loader'
       },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: ['file-loader']
+      },
+
       {
         test: /\.s[a|c]ss$/,
         loader: 'style-loader!css-loader!sass-loader'
@@ -57,6 +63,13 @@ const config = {
 }
 
 module.exports = (env, argv) => {
+  const copyPlugin = [
+    {
+      from: resolve('static/favicon.ico'),
+      to: resolve('dist'),
+      toType: 'dir'
+    }
+  ]
   if (argv.mode === 'development') {
     config.devServer = {
       port: 3000,
@@ -69,24 +82,20 @@ module.exports = (env, argv) => {
       },
       hotOnly: true
     }
-    config.output.publicPath = '/'
     config.devtool = '#eval-source-map'
     config.plugins.push(new webpack.HotModuleReplacementPlugin())
   }
 
   if (argv.mode === 'production') {
+    copyPlugin.push({
+      from: resolve('static/_redirects'),
+      to: resolve('dist'),
+      toType: 'dir'
+    })
     config.output.path = resolve('dist')
-    config.output.publicPath = '/'
-    config.plugins.push(
-      new CopyWebpackPlugin([
-        {
-          from: resolve('static/_redirects'),
-          to: resolve('dist'),
-          toType: 'dir'
-        }
-      ])
-    )
   }
+  config.output.publicPath = '/'
+  config.plugins.push(new CopyWebpackPlugin(copyPlugin))
 
   return config
 }

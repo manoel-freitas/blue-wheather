@@ -1,0 +1,17 @@
+.wheater {
+    &__stats {
+        @extend .center-flex;
+        flex-direction: row;
+        width: 80%;
+        height: 50%;
+        justify-content: space-around;
+        color: grey;
+        padding-bottom: 1rem;
+        div {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+    
+    }
+}

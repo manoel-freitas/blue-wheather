@@ -7,7 +7,8 @@ const http = axios.create({
 http.interceptors.request.use(
   function(config) {
     config.params = {
-      APPID: process.env.apiKey
+      APPID: process.env.apiKey,
+      units: 'metric'
     }
     return config
   },
@@ -17,8 +18,9 @@ http.interceptors.request.use(
 )
 
 export default {
-  getTodaysWheater(id) {
+  async getTodaysWheater(id) {
     const url = `/weather?id=${id}`
-    return http.get(url)
+    const responseGet = await http.get(url)
+    return responseGet.data
   }
 }

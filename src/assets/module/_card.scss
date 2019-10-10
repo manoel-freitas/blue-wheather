@@ -1,0 +1,37 @@
+
+.card {
+    @extend .center-flex;
+    box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
+    border-radius: 3px;
+    background-color: map-get($color-map,site-white);
+    width: auto;
+    &__header {
+        @extend .center-flex;
+        padding: 1rem 0;
+        width: 100%;
+        color: grey;
+        hr {
+            width: 100%;
+        }
+    }
+    &__body {
+        @extend .center-flex;
+        height: 100%;
+        width: 100%;
+        font-size: 4rem;
+    }
+    &__footer {
+        @extend .center-flex;
+        width: 100%;
+        background-color: adjust-color(map-get($color-map,site-smokewhite), $alpha: .5);
+        color: grey;
+        hr {
+            width: 100%;
+            margin-bottom: 20px;
+            margin-top: 0;
+        }
+    }
+    @include media('<desktop') {
+        width: 100%;
+    }
+}

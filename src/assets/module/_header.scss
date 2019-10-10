@@ -1,0 +1,12 @@
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .1rem;
+    box-shadow: 0px 1px 1px 0px $box-shadow;
+    background: map-get($color-map,site-white);
+    z-index: 1
+}
